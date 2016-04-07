@@ -1,2 +1,4 @@
 # Capacitive-Touch
 Contains all program code and info for the capacitive touch system used in CommuniTree's interactive art installation
+
+Python library for interfacing with a MPR121 capacitive touch sensor on the Raspberry Pi >> https://www.adafruit.com/products/2340 Code for accessing and controlling the touch sensor is used in this Library (MPR121.py & init.py) borrowed from Tony DiCola and Adafruit Industries. From the CommiTree_Programs folder is final program (sound_touchNew.py written by Kris Hunt) for CommuniTree's Interactive Art Installion, this program allows ambient sounds to play while touch is detected. The program has it where each sensor port (total of 12) is assigned to a specific sound; when contact is made a sound plays, if contact ends then the sound will fade out and eventually stop. The library can be accessed and downloaded from https://git.assembla.com/uwb-2016-communitree.touch.git.
