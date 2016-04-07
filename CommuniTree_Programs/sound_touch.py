@@ -90,7 +90,7 @@ while True:
         if not current_touched & pin_bit and last_touched & pin_bit:
             print '{0} released!'.format(i)
             if (sounds[i]):
-                sounds[i].stop()
+                sounds[i].fadeout(2000)
 
     # Update last state and wait a short period before repeating.
     last_touched = current_touched
