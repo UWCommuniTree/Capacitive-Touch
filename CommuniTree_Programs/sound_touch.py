@@ -1,5 +1,5 @@
 # 2016 CommuniTree
-# Author: Tony DiCola
+# Author: Kris Hunt
 #
 # This program is inspired from code used from Adafruit Industries & Tony DiCola
 #
@@ -50,6 +50,7 @@ pygame.init()
 # Define mapping of capacitive touch pin presses to sound files
 # tons more sounds are available in /opt/sonic-pi/etc/samples/ and
 # /usr/share/scratch/Media/Sounds/
+# All sounds are open source/fair use, must be .wav format. 
 SOUND_MAPPING = {
   0: '/home/pi/sounds/glory_and_wind.wav',
   1: '/home/pi/sounds/air_pipe.wav',
@@ -60,9 +61,9 @@ SOUND_MAPPING = {
   6: '/home/pi/sounds/nature/swamp_y.wav',
   7: '/home/pi/sounds/nature/crickets_y.wav',
   8: '/home/pi/sounds/nature/strong_wind_y.wav',
-  9: '/home/pi/sounds/Amb_Test1.wav',
-  10: '/opt/sonic-pi/etc/samples/drum_cymbal_soft.wav',
-  11: '/opt/sonic-pi/etc/samples/perc_bell.wav',
+  9: '/home/pi/sounds/nature/light_rain_y.wav',
+  10: '/home/pi/sounds/nature/forest_ambience.wav',
+  11: '/home/pi/sounds/nature/wind_and_rain.wav',
 }
 # Array sounds set for 12 pins.
 sounds = [0,0,0,0,0,0,0,0,0,0,0,0]
@@ -85,9 +86,11 @@ while True:
         if current_touched & pin_bit and not last_touched & pin_bit:
             print '{0} touched!'.format(i)
             if (sounds[i]):
-                sounds[i].play()
+                sounds[i].play(-1)
         if not current_touched & pin_bit and last_touched & pin_bit:
             print '{0} released!'.format(i)
+            if (sounds[i]):
+                sounds[i].stop()
 
     # Update last state and wait a short period before repeating.
     last_touched = current_touched
